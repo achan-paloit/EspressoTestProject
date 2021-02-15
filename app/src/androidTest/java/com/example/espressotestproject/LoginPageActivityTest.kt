@@ -111,29 +111,4 @@ class LoginPageActivityTest {
         pressBack()
         onView(withId(R.id.cl_login_page)).check(matches(isDisplayed()))
     }
-
-    /*
-    Fail to check if the app is closed or is loginpageactivity behind when back button is pressed
-     */
-    /*@Test
-    fun validNavWithHomePage() {
-        onView(withId(R.id.et_username)).perform(clearText(), typeText("alfred"))
-        onView(withId(R.id.et_password)).perform(clearText(), typeText("password"))
-        onView(withId(R.id.btn_sign_in)).perform(scrollTo()).perform(click())
-
-        //Maybe try to see if we can check backstack
-
-        pressBack()
-        Log.d("Testing", "Name: ${LoginPageActivity::class.java.name}")
-        intended(hasComponent(LoginPageActivity::class.java.name))
-        //intended(not(hasComponent(LoginPageActivity::class.java.name)))
-    }*/
-
-
-    /*@Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.expressotestproject", appContext.packageName)
-    }*/
 }
