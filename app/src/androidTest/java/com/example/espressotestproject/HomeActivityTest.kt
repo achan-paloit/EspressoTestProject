@@ -40,6 +40,7 @@ class HomeActivityTest {
     @Before
     fun setUp() {
         Intents.init()
+        addSharePref()
     }
 
     @After
@@ -69,10 +70,8 @@ class HomeActivityTest {
      */
     @Test
     fun checkThatWithPrefItWillLoadHomeActivity() {
-        addSharePref()
         launchActivity<LoginPageActivity>()
         intended(hasComponent(HomeActivity::class.java.name)) //Use Intended
-        clearSharePref()
     }
 
     /**
@@ -81,12 +80,10 @@ class HomeActivityTest {
      */
     @Test
     fun bottomNavTestHome() {
-        addSharePref()
         launchActivity<LoginPageActivity>()
         intended(hasComponent(HomeActivity::class.java.name)) //Use Intended
         onView(withId(R.id.navigation_home)).perform(click())
         onView(withId(R.id.cl_fragment_home)).check(matches(isDisplayed()))
-        clearSharePref()
     }
 
     /**
@@ -95,12 +92,10 @@ class HomeActivityTest {
      */
     @Test
     fun bottomNavTestProfile() {
-        addSharePref()
         launchActivity<LoginPageActivity>()
         intended(hasComponent(HomeActivity::class.java.name)) //Use Intended
         onView(withId(R.id.navigation_profile)).perform(click())
         onView(withId(R.id.cl_fragment_profile)).check(matches(isDisplayed()))
-        clearSharePref()
     }
 
     /**
@@ -109,12 +104,10 @@ class HomeActivityTest {
      */
     @Test
     fun testLogOut() {
-        addSharePref()
         launchActivity<LoginPageActivity>()
         intended(hasComponent(HomeActivity::class.java.name)) //Use Intended
         onView(withId(R.id.navigation_profile)).perform(click())
         onView(withId(R.id.btn_log_out)).perform(click())
         intended(hasComponent(LoginPageActivity::class.java.name)) //Use Intended
-        clearSharePref()
     }
 }
